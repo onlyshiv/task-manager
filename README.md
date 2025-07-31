@@ -50,7 +50,7 @@ MSW intercepts fetch/XHR requests and returns mock data:
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/task-manager-ui.git
+git clone https://github.com/onlyshiv/task-manager.git
 cd task-manager-ui
 
 # Install dependencies
