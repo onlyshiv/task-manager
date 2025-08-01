@@ -1,6 +1,5 @@
-// src/components/AddTaskForm.tsx
 import { useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 import { addTask } from '../features/tasks/taskSlice';
 import {
@@ -8,7 +7,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  DialogClose,
+  DialogTrigger
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -24,10 +24,10 @@ import {
 
 const AddTaskForm = () => {
   const dispatch = useAppDispatch();
-  const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState<'pending' | 'completed'>('pending');
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,27 +35,23 @@ const AddTaskForm = () => {
     setTitle('');
     setDescription('');
     setStatus('pending');
-    setIsOpen(false);
+    // dialog closes via DialogClose
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button onClick={() => setIsOpen(true)} className="flex items-center gap-2">
+        <Button className="flex items-center gap-2">
           <Plus className="w-4 h-4" />
           Add Task
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md">
+      <DialogContent
+        className="z-[60] bg-background text-foreground backdrop-blur-md"
+      >
         <DialogHeader>
           <DialogTitle>Create Task</DialogTitle>
-          <button
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none"
-            onClick={() => setIsOpen(false)}
-          >
-            <X className="h-4 w-4" />
-          </button>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
@@ -82,7 +78,12 @@ const AddTaskForm = () => {
 
           <div className="space-y-2">
             <Label htmlFor="status">Status</Label>
-            <Select value={status} onValueChange={(value) => setStatus(value as 'pending' | 'completed')}>
+            <Select
+              value={status}
+              onValueChange={(value) =>
+                setStatus(value as 'pending' | 'completed')
+              }
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
@@ -94,10 +95,14 @@ const AddTaskForm = () => {
           </div>
 
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="outline" type="button" onClick={() => setIsOpen(false)}>
-              Cancel
-            </Button>
-            <Button type="submit">Submit</Button>
+            <DialogClose asChild>
+              <Button variant="outline" type="button">
+                Cancel
+              </Button>
+            </DialogClose>
+            <DialogClose asChild>
+              <Button type="submit">Submit</Button>
+            </DialogClose>
           </div>
         </form>
       </DialogContent>

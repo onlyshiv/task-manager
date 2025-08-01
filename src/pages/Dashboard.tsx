@@ -35,7 +35,11 @@ const Dashboard = () => {
         <h1 className="text-3xl font-bold tracking-tight">Task Manager</h1>
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button variant="destructive" size="sm" onClick={handleLogout}>
+          <Button
+            size="sm"
+            onClick={handleLogout}
+            className="bg-red-500 text-white hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-600"
+          >
             Logout
           </Button>
         </div>
@@ -102,13 +106,13 @@ const Dashboard = () => {
                 <Pencil className="w-4 h-4 mr-1" /> Edit
               </Button>
               <Button
-                variant="destructive"
                 size="sm"
                 onClick={() => {
                   if (window.confirm('Are you sure you want to delete this task?')) {
                     dispatch(deleteTask(task.id));
                   }
                 }}
+                className="bg-red-500 text-white hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-600"
               >
                 <Trash2 className="w-4 h-4 mr-1" /> Delete
               </Button>

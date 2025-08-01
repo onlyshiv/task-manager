@@ -40,7 +40,7 @@ const EditTaskForm = ({ task, onClose }: Props) => {
 
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="z-[60] bg-background text-foreground backdrop-blur-md">
         <DialogHeader>
           <DialogTitle>Edit Task</DialogTitle>
         </DialogHeader>
