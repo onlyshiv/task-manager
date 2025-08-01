@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <div className="flex min-h-screen">
       {/* Left panel (dark) */}
-      <div className="w-1/2 bg-neutral-900 text-white p-10 flex flex-col justify-between">
+      <div className="hidden md:flex md:w-1/2 bg-neutral-900 text-white p-10 flex-col justify-between">
         <div>
           <h1 className="text-xl font-semibold">Team Task Manager</h1>
         </div>
@@ -41,7 +41,7 @@ const Login = () => {
       </div>
 
       {/* Right panel (light) */}
-      <div className="w-1/2 bg-white p-10 flex flex-col justify-center">
+      <div className="w-full md:w-1/2 bg-white p-8 md:p-10 flex flex-col justify-center">
         <div className="w-full max-w-md mx-auto">
           <h2 className="text-2xl font-semibold mb-2">Sign In</h2>
           <p className="text-sm text-gray-600 mb-6">Enter your credentials to continue</p>
