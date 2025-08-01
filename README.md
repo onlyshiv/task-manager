@@ -4,7 +4,7 @@ A polished, professional-looking **Task Management** app built using **React**, 
 
 ### Live Demo (Vercel)
 
-➡️ [https://task-manager-alpha-five-59.vercel.app/](https://task-manager-alpha-five-59.vercel.app/p)
+➡️ [https://task-manager-alpha-five-59.vercel.app/](https://task-manager-alpha-five-59.vercel.app/)
 
 ## Tech Stack
 
