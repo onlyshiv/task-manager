@@ -18,6 +18,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const { tasks, loading, error } = useAppSelector((state) => state.tasks);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [filter, setFilter] = useState<'all' | 'pending' | 'completed'>('all');
 
   useEffect(() => {
     dispatch(fetchTasks());
@@ -27,6 +28,10 @@ const Dashboard = () => {
     dispatch(logout());
     navigate('/');
   };
+
+  const filteredTasks = tasks.filter((task) =>
+    filter === 'all' ? true : task.status === filter
+  );
 
   return (
     <div className="min-h-screen bg-background px-6 py-8">
@@ -45,9 +50,20 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Add Task */}
-      <div className="mb-6">
+      {/* Toolbar */}
+      <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
         <AddTaskForm />
+        <div className="ml-auto">
+          <select
+            className="px-3 py-2 border rounded-md bg-[oklch(var(--card))] text-[oklch(var(--card-foreground))] border-[oklch(var(--border))] text-sm"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value as 'all' | 'pending' | 'completed')}
+          >
+            <option value="all">All Tasks</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
       </div>
 
       {/* Edit Task Dialog */}
@@ -74,29 +90,43 @@ const Dashboard = () => {
 
       {/* Task Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-        {tasks.map((task) => (
+        {filteredTasks.map((task) => (
           <Card
             key={task.id}
-            className="p-5 rounded-2xl shadow-md transition hover:shadow-lg border border-border"
+            className="p-5 rounded-2xl shadow-xl border border-transparent bg-[oklch(0.98 0 0)] text-[oklch(0.15 0 0)] dark:bg-[oklch(0.24 0 0)] dark:text-[oklch(0.98 0 0)]"
           >
-            <div className="flex justify-between items-start mb-2">
-              <h2 className="text-lg font-semibold truncate max-w-[80%]">
+            <div className="flex justify-between items-start mb-3">
+              <h2 className="text-lg font-semibold text-foreground max-w-[80%] truncate">
                 {task.title}
               </h2>
-            <Badge
-              variant="secondary"
-              className={
-                task.status === 'completed'
-                  ? 'bg-green-100 text-green-700 dark:bg-green-800/20'
-                  : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-800/20'
-              }
-            >
-              {task.status}
-            </Badge>
+              <Badge
+                variant="secondary"
+                className={
+                  task.status === 'completed'
+                    ? 'bg-green-100 text-green-700 dark:bg-green-800/20 dark:text-green-300'
+                    : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-800/20 dark:text-yellow-300'
+                }
+              >
+                {task.status}
+              </Badge>
             </div>
+
             <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
               {task.description}
             </p>
+
+            <div className="flex flex-wrap gap-2 mb-4 text-xs">
+              <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">
+                {task.priority || 'Normal'}
+              </Badge>
+              <Badge className="bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-200">
+                {task.dueDate ? `Due: ${task.dueDate}` : 'No Due Date'}
+              </Badge>
+              <Badge className="bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200">
+                {task.assignee || 'Unassigned'}
+              </Badge>
+            </div>
+
             <div className="flex gap-2">
               <Button
                 variant="outline"

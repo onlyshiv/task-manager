@@ -34,9 +34,7 @@ const Login = () => {
             You can sign in to access with your existing account.
           </p>
         </div>
-        {/* Background graphics */}
         <div className="absolute inset-0 z-0 opacity-30">
-          {/* Optional abstract shapes can be added here */}
         </div>
       </div>
 

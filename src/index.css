@@ -8,6 +8,27 @@
 @tailwind utilities;
 
 /* Base font and transition */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
@@ -72,13 +93,13 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
+  background-color: #fafafa;
   color: black;
 }
 
 /* Dark mode body */
-html.dark body {
-  background-color: #09090b; /* zinc-900 */
+html.dark body{
+  background-color: #1b1f23; /* zinc-900 */
   color: white;
 }
 
@@ -224,7 +245,12 @@ html.dark body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  .card {
+    @apply transition-colors duration-200 ease-in-out;
   }
 }

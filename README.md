@@ -2,6 +2,10 @@
 
 A polished, professional-looking **Task Management** app built using **React**, **TypeScript**, **Redux Toolkit**, and **Tailwind CSS**. This app simulates authentication and CRUD operations using **Mock Service Worker (MSW)** to fully mock backend interactions.
 
+### Live Demo (Vercel)
+
+➡️ [https://task-manager-alpha-five-59.vercel.app/](https://task-manager-alpha-five-59.vercel.app/p)
+
 ## Tech Stack
 
 - **React** (Vite + TypeScript)
@@ -9,7 +13,8 @@ A polished, professional-looking **Task Management** app built using **React**, 
 - **Tailwind CSS** with **ShadCN UI** components
 - **MSW (Mock Service Worker)** to simulate backend API
 - **Dark mode** and modern UI with card layouts
-- **Deployed using Vercel/Netlify** (to be updated)
+- **Deployed with [Vercel](https://task-manager-alpha-five-59.vercel.app/)**
+- **Dockerized** frontend for containerized deployment
 
 ## 📌 Features
 
