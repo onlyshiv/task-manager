@@ -4,7 +4,7 @@ A polished, professional-looking **Task Management** app built using **React**, 
 
 ### Live Demo (Vercel)
 
-➡️ [https://task-manager-alpha-five-59.vercel.app/](https://task-manager-alpha-five-59.vercel.app/)
+➡️ [https://task-manager-rho-lovat.vercel.app/](https://task-manager-rho-lovat.vercel.app/)
 
 > **Credentials**
 > **Username**: `test`
@@ -18,7 +18,7 @@ A polished, professional-looking **Task Management** app built using **React**, 
 - **Tailwind CSS** with **ShadCN UI** components
 - **MSW (Mock Service Worker)** to simulate backend API
 - **Dark mode** and modern UI with card layouts
-- **Deployed with [Vercel](https://task-manager-alpha-five-59.vercel.app/)**
+- **Deployed with [Vercel](https://task-manager-rho-lovat.vercel.app/)**
 - **Dockerized** frontend for containerized deployment
 - **Vitest** + **React Testing Library** for unit tests
 
