@@ -1,10 +1,17 @@
 # Task Manager App (Frontend Only)
 
-A polished, professional-looking **Task Management** app built using **React**, **TypeScript**, **Redux Toolkit**, and **Tailwind CSS**. This app simulates authentication and CRUD operations using **Mock Service Worker (MSW)** to fully mock backend interactions.
+A polished, professional-looking **Task Management** app built using **React**, **TypeScript**, **Redux Toolkit**, and **Tailwind CSS + ShadCN**. It simulates authentication and CRUD operations using **Mock Service Worker (MSW)** to fully mock backend interactions.
 
 ### Live Demo (Vercel)
 
 ➡️ [https://task-manager-alpha-five-59.vercel.app/](https://task-manager-alpha-five-59.vercel.app/)
+
+Absolutely! Here's the updated section for your README with **username/password details** added to the live demo part:
+
+> **Test Credentials**
+> **Username**: `test`
+> **Password**: `test123`
+
 
 ## Tech Stack
 
@@ -15,6 +22,7 @@ A polished, professional-looking **Task Management** app built using **React**, 
 - **Dark mode** and modern UI with card layouts
 - **Deployed with [Vercel](https://task-manager-alpha-five-59.vercel.app/)**
 - **Dockerized** frontend for containerized deployment
+- **Vitest** + **React Testing Library** for unit tests
 
 ## 📌 Features
 
@@ -26,6 +34,8 @@ A polished, professional-looking **Task Management** app built using **React**, 
 - ✅ **MSW integration** to mock API calls
 - ✅ **Task statuses**: Pending / Completed
 - ✅ **Optimized UX** with error/empty/loading states
+- ✅ **Docker support** for containerized deployment
+- ✅ **Unit testing** setup with Vitest & React Testing Library
 
 ## Folder Structure
 
@@ -65,6 +75,44 @@ yarn
 yarn dev
 ```
 
+## 🐳 Docker Support
+
+This app is fully Dockerized for containerized deployment using a multi-stage build (Node + Nginx).
+
+### 📁 Files Included
+
+* `Dockerfile` — Builds the app and serves via Nginx
+* `nginx.conf` — Handles client-side routing for React SPA
+* `.dockerignore` — Prevents unnecessary files from being copied during build
+
+### ▶️ Steps to Build & Run
+
+```bash
+# Build the Docker image
+docker build -t task-manager-app .
+
+# Run the Docker container on port 8080
+docker run -p 8080:80 task-manager-app
+```
+---
+
+## 🧪 Unit Testing (Vitest + React Testing Library)
+
+The project includes unit tests for UI components using **Vitest** and **@testing-library/react**.
+
+### 📁 Test Location
+
+```
+src/
+└── __tests__/
+    └── AddTaskForm.test.tsx
+```
+
+### ▶️ To Run All Tests
+
+```bash
+yarn test
+```
 ## 🔐 Authentication
 
 Authentication is simulated using Redux state and MSW. No real backend involved.

@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (username === 'test' && password === 'shiv1234') {
+    if (username === 'test' && password === 'test123') {
       dispatch(loginSuccess('fake-jwt-token'));
       navigate('/dashboard');
     } else {

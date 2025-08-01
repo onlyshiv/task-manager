@@ -64,7 +64,7 @@ export const handlers = [
       password: string;
     };
 
-    if (username === 'test' && password === 'shiv1234') {
+    if (username === 'test' && password === 'test123') {
       return HttpResponse.json({ token: 'fake-jwt-token' }, { status: 200 });
     }
 
