@@ -49,14 +49,14 @@ const Login = () => {
               placeholder="Username or email"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="bg-gray-100 border border-gray-300"
+              className="bg-white text-black border border-gray-300 dark:bg-white dark:text-black"
             />
             <Input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="bg-gray-100 border border-gray-300"
+              className="bg-white text-black border border-gray-300 dark:bg-white dark:text-black"
             />
 
             {error && <p className="text-sm text-red-500">{error}</p>}

@@ -6,9 +6,7 @@ A polished, professional-looking **Task Management** app built using **React**, 
 
 ➡️ [https://task-manager-alpha-five-59.vercel.app/](https://task-manager-alpha-five-59.vercel.app/)
 
-Absolutely! Here's the updated section for your README with **username/password details** added to the live demo part:
-
-> **Test Credentials**
+> **Credentials**
 > **Username**: `test`
 > **Password**: `test123`
 
